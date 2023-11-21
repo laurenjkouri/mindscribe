@@ -1,0 +1,124 @@
+.journal-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: white;
+    width: 60%;
+    height: 25%;
+    align-self: left;
+    margin-top: 5px;
+    text-align: left;
+    justify-content: left;
+    justify-self: left;
+}
+
+.header {
+    margin-top: 20px;
+    color: #A5D8E1;
+}
+
+.selectors {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-bottom: 10px; /* Adjust as needed */
+  }
+  
+  .selector {
+    display: flex;
+    flex-direction: column;
+  }
+
+.text-box {
+    margin-top: 20px;
+    padding: 6px 12px;
+    height: 200px;
+    width: 90%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #A5D8E1;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+:focus{
+    color: #212529;
+    background-color: #A5D8E1;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+html {
+  height: 100%;
+}
+
+body { 
+  background: -webkit-linear-gradient(90deg, #EC6F66 10%, #F3A183 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #EC6F66 10%, #F3A183 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #EC6F66 10%, #F3A183 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #EC6F66 10%, #F3A183 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #EC6F66 10%, #F3A183 90%); /* W3C */
+  font-family: 'Raleway', sans-serif; 
+  font-size: 20px; 
+}
+
+#header-container {
+  display: block;
+  position: absolute;
+  width: 320px;
+  height: 55px;
+  left: 50%;
+  top: 50%;
+  margin-left: -160px;
+  margin-top: -87px;
+}
+
+/* Select style here */
+
+select {
+  margin: 0 auto;
+  color: #EC6F66;
+  width: 310px;
+  padding: 15px;
+  height: 25px;
+  cursor: pointer;
+  background: url(http://sharpik.com/wip/cuteselect/arrow.png) 295px 12px no-repeat white;
+}
+
+select:hover {
+  background-color: transparent;
+  color: white;
+  padding: 15px 5px 15px 25px;
+}
+
+select option {
+  background-color: white;
+  color: gray;
+  width: 310px;
+  padding: 10px 15px;
+  height: 20px;
+  cursor: pointer;
+}
+
+select option:hover {
+  padding-left: 25px;
+  width: 270px;
+  color: #EC6F66;
+}

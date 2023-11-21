@@ -1,0 +1,15 @@
+.page-banner {
+    background-position: left top;;
+    background-repeat: no-repeat;
+    height: auto;
+    width: 60%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    color: white;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}

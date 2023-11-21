@@ -1,0 +1,32 @@
+{
+  "name": "mindscribe",
+  "version": "1.0.0",
+  "description": "A meditation tracking and journaling web application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurenjkouri/mindscribe.git"
+  },
+  "keywords": [
+    "Meditation",
+    "Journal"
+  ],
+  "author": "Lauren Kouri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurenjkouri/mindscribe/issues"
+  },
+  "homepage": "https://github.com/laurenjkouri/mindscribe#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.4",
+    "axios": "^1.6.2",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.3",
+    "nodemon": "^3.0.1"
+  }
+}
