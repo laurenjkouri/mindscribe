@@ -70,7 +70,7 @@ const JournalInput = () => {
         </div>
 
   <textarea className="text-box" value={journalEntry} onChange={e => setJournalEntry(e.target.value)} />
-  <button type="submit">Submit</button>
+  <button type="submit" className="button-59">Submit</button>
 </form>
         </div>
         <script src="SelectBox.js"></script>
