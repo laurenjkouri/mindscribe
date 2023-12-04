@@ -1,0 +1,14 @@
+.quote-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: bold;
+    border: 5px solid #FF66C4;
+    padding: 5px;
+    margin-top: 20px;
+}
+
