@@ -51,3 +51,11 @@ body {
 .Calendar__container__content .react-calendar {
   margin: 0 auto;
 }
+
+.journal-day {
+  background-color: #FF66C4;
+}
+
+.calendar-banner {
+  height: 40px;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './JournalInput.css';
+import { supabase } from '../../database.js';
+import InputBanner from './InputBanner.png';
 
 const JournalInput = () => { 
 
@@ -9,11 +11,47 @@ const JournalInput = () => {
     const [meditationRating, setMeditationRating] = useState('1');
     const [stressLevel, setStressLevel] = useState('1');
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      // Logic to send data to your backend or process it as needed
-      console.log({ journalEntry, meditationRating, stressLevel });
-    };
+
+      const parsedMeditationRating = parseInt(meditationRating, 10);
+      const parsedStressLevel = parseInt(stressLevel, 10);
+
+      const { data, error } = await supabase.auth.getUser();
+
+      if (error) throw error;
+
+      const userId = data.user.id;
+  
+      if (!userId) {
+          console.error('User is not logged in');
+          return;
+      }
+
+      try {
+          const response = await fetch('http://localhost:3002/add-journal-entry', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  userId,
+                  journalEntry,
+                  meditationRating: parsedMeditationRating,
+                  stressLevel: parsedStressLevel
+              }),
+          });
+  
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+  
+          // Handle success - maybe clear the form or show a success message
+          console.log('Journal entry added successfully');
+      } catch (error) {
+          console.error('Error adding journal entry:', error);
+      }
+  };
 
     const meditationRatings = [
         { value: 1, description: "1. Just Breathe In" },
@@ -42,39 +80,45 @@ const JournalInput = () => {
     ]
       
 
-    return (
-        <div>
-        <div className="journal-container">
-        <h2 className="header"> A Space for Your Thoughts </h2>
-        <form onSubmit={handleSubmit}>
-        <div className="selectors">
-            <div className="selector">
-            <label htmlFor="meditationRating">How was your meditation today?</label>
-            <select id="meditationRating" value={meditationRating} onChange={e => setMeditationRating(e.target.value)}>
-            <option value="" disabled>How was your meditation today?</option>
-                {meditationRatings.map(rating => (
-                <option key={rating.value} value={rating.value}>{rating.description}</option>
-                ))}
-            </select>
-            </div>
-            
-            <div className="selector">
-            <label htmlFor="stressLevel">What's your stress level?</label>
-            <select id="stressLevel" value={stressLevel} onChange={e => setStressLevel(e.target.value)}>
-                <option disabled>Select Level</option>
-                {stressRatings.map(rating => (
-                <option key={rating.value} value={rating.value}>{rating.description}</option>
-                ))}
-            </select>
-            </div>
-        </div>
+  return (
+      <div>
+        <div className="image-border-container">
+      <div className="journal-container">
+          <img className="input-banner" src={InputBanner} alt="banner"/>
+          <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                  <label htmlFor="meditationRating">Rate Your Meditation Session: </label>
+                  <div className="select">
+                      <select id="meditationRating" value={meditationRating} onChange={e => setMeditationRating(e.target.value)}>
+                          <option value="" disabled>How was your meditation?</option>
+                          {meditationRatings.map(rating => (
+                              <option key={rating.value} value={rating.value}>{rating.description}</option>
+                          ))}
+                      </select>
+                  </div>
+              </div>
 
-  <textarea className="text-box" value={journalEntry} onChange={e => setJournalEntry(e.target.value)} />
-  <button type="submit" className="button-59">Submit</button>
-</form>
-        </div>
-        <script src="SelectBox.js"></script>
+              <div className="form-group">
+                  <label htmlFor="stressLevel">And Your Stress Levels Today:</label>
+                  <div className="select">
+                      <select id="stressLevel" value={stressLevel} onChange={e => setStressLevel(e.target.value)}>
+                          <option disabled>How stressed were you today? </option>
+                          {stressRatings.map(rating => (
+                              <option key={rating.value} value={rating.value}>{rating.description}</option>
+                          ))}
+                      </select>
+                  </div>
+              </div>
+
+
+              <textarea className="text-box" value={journalEntry} onChange={e => setJournalEntry(e.target.value)} />
+              <button type="submit" className="button-59">Submit</button>
+          </form>
       </div>
+      </div>
+      <script src="SelectBox.js"></script>
+  </div>
+
     );
 
     
