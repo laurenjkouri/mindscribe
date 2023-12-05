@@ -3,7 +3,7 @@
     margin-right: 10px;
     background-color: white;
     width: 98%;
-    max-height: 500px;
+    height: 500px;
     align-self: center;
     margin-top: 10px;
     text-align: left;
@@ -54,9 +54,9 @@
 }
 
 .rating-image {
-    width: 20px; /* Adjust size as needed */
+    width: 20px;
     height: 20px;
-    margin-right: 2px; /* Space between images */
+    margin-right: 2px;
 }
 
 .date-entered {

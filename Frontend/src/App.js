@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import pages to be used in router
 import Login from "./Pages/Login"; 
 import Register from "./Pages/Register"; 
 import Home from "./Pages/Home";
-import AboutMeditation from "./Pages/AboutMeditation";
-
+import TechnicalDocument from "./Pages/TechnicalDocument";
+import HelpDocument from "./Pages/Help";
+import MeditationHelp from "./Pages/MeditationHelp";
 
 function App() {
     return (
@@ -16,7 +16,9 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/meditationguide" element={<AboutMeditation />} />
+                <Route path="/technicaldocument" element={<TechnicalDocument />} />
+                <Route path="/help" element={<HelpDocument />} />
+                <Route path="/advice" element={<MeditationHelp />} />
             </Routes>
         </Router>
     )

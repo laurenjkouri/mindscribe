@@ -1,13 +1,3 @@
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Segoe UI, Tahoma, sans-serif;
-}
-
 .Calendar input,
 .Calendar button {
   font: inherit;

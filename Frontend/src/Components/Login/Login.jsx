@@ -4,9 +4,10 @@ import { supabase } from '../../database.js';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-document.body.style.backgroundColor = "#A5D8E1";
-
 const Login = () => {
+
+  document.body.style.backgroundColor = "#A5D8E1";
+
     const [formData, setFormData] = useState({
       email: '',
       password: '',
